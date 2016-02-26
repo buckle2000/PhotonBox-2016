@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc.team6179.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team6179.robot.subsystems.Shooter;
 import org.usfirst.frc.team6179.robot.subsystems.ShooterElevator;
 
@@ -22,11 +23,11 @@ public class Robot extends IterativeRobot {
     public static Robot instance;
 
     Command autonomousCommand;
-
     SendableChooser chooser;
 
     public OI oi;
 
+    public DriveTrain driveTrain;
     public Shooter shooter;
     public ShooterElevator elevator;
 
