@@ -13,19 +13,29 @@ public class LogitechGamepad implements OI {
         stick = new Joystick(0);
     }
 
+    @Override
     public double getMovement() {
         return 0;
     }
 
+    @Override
     public double getRotation() {
         return 0;
     }
 
+    @Override
     public double getLeftMovement() {
         return 0;
     }
 
+    @Override
     public double getRightMovement() {
         return 0;
     }
+    
+    @Override
+    public double getShooterElevatorInput() {
+        return 0;
+    }
+
 }
