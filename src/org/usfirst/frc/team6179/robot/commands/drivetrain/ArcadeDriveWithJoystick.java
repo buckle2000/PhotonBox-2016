@@ -1,4 +1,4 @@
-package org.usfirst.frc.team6179.robot.commands.driveTrain;
+package org.usfirst.frc.team6179.robot.commands.drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team6179.robot.Robot;
@@ -17,7 +17,7 @@ public class ArcadeDriveWithJoystick extends Command {
     }
 
     protected void execute() {
-        Robot.instance.driveTrain.arcadeDrive(Robot.instance.oi.getY(), Robot.instance.oi.getRotation());
+        Robot.instance.driveTrain.arcadeDrive(Robot.instance.oi.getMovement(), Robot.instance.oi.getRotation());
     }
 
     protected boolean isFinished() {
@@ -25,14 +25,10 @@ public class ArcadeDriveWithJoystick extends Command {
     }
 
     protected void end() {
-        endCommand();
     }
 
     protected void interrupted() {
 
     }
 
-    private void endCommand() {
-        Robot.instance.driveTrain.stop();
-    }
 }

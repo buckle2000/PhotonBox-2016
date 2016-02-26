@@ -1,18 +1,15 @@
 
 package org.usfirst.frc.team6179.robot.subsystems;
 
-import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import org.usfirst.frc.team6179.robot.LogitechGamepad;
-import org.usfirst.frc.team6179.robot.OI;
+import org.usfirst.frc.team6179.robot.commands.drivetrain.ArcadeDriveWithJoystick;
+import org.usfirst.frc.team6179.robot.mappings.RobotMap;
 
 /**
  *
  */
 public class DriveTrain extends Subsystem {
-
-    TalonSRX leftMotor;
-    TalonSRX rightMotor;
 
     // Multiplies the speed to be set when setting the speed
     public double speedMultiplier = 0.8;
@@ -26,16 +23,9 @@ public class DriveTrain extends Subsystem {
     private RobotDrive drive;
 
     public DriveTrain(int left, int right) {
-        leftMotor = new TalonSRX(left);
-        rightMotor = new TalonSRX(right);
-        drive = new RobotDrive(leftMotor, rightMotor);
+        drive = new RobotDrive(RobotMap.leftMotor, RobotMap.rightMotor);
     }
 
-//    public DriveTrain(int motor, double speed) {
-//        TalonSRX Motor = new TalonSRX(motor);
-//        Motor.set(speed);
-//    }
-    
     public void arcadeDrive(double movement, double rotation) {
         drive.arcadeDrive(movement * speedMultiplier, rotation * turnMultiplier, squaredInput);
     }
@@ -49,7 +39,7 @@ public class DriveTrain extends Subsystem {
     }
 
     public void initDefaultCommand() {
-        //		setDefaultCommand(new DriveWithJoystick());
+        setDefaultCommand(new ArcadeDriveWithJoystick());
     }
 
 }

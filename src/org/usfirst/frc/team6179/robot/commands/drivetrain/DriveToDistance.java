@@ -1,8 +1,9 @@
-package org.usfirst.frc.team6179.robot.commands.driveTrain;
+package org.usfirst.frc.team6179.robot.commands.drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team6179.robot.Robot;
 
+// TODO: to be implemented in the future.
 public class DriveToDistance extends Command {
     double distance;
     double speed;

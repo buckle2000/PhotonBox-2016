@@ -5,17 +5,23 @@ package org.usfirst.frc.team6179.robot;
  */
 public interface OI {
 
-    public double getX();
+    /**
+     * The movement value of the entire robot
+     */
+    double getMovement();
 
-    public double getY();
+    /**
+     * The rotation value of the entire robot
+     */
+    double getRotation();
 
-    public double getRotation();
+    /**
+     * The movement value of the left wheels of the robot
+     */
+    double getLeftMovement();
 
-    public double getLeftX();
-
-    public double getLeftY();
-
-    public double getRightX();
-
-    public double getRightY();
+    /**
+     * The movement value of the right wheels of the robot
+     */
+    double getRightMovement();
 }
