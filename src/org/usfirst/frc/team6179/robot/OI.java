@@ -5,6 +5,7 @@ package org.usfirst.frc.team6179.robot;
  */
 public interface OI {
 
+<<<<<<< HEAD
     /**
      * The movement value of the entire robot
      */
@@ -14,6 +15,9 @@ public interface OI {
      * The rotation value of the entire robot
      */
     double getRotation();
+=======
+    double getShooterElevatorInput();
+>>>>>>> master
 
     /**
      * The movement value of the left wheels of the robot
