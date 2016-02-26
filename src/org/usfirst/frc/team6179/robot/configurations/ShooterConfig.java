@@ -5,8 +5,8 @@ package org.usfirst.frc.team6179.robot.configurations;
  */
 public class ShooterConfig {
 
-    public static int triggerServoBackPosition = 0;
-    public static int triggerServoForwardPosition = 270;
+    public static double triggerServoBackPosition = 0.2;
+    public static double triggerServoForwardPosition = 0.6;
 
     // the delay, in seconds, from when the shooter motors start and when the trigger delivers the boulder.
     public static double shooterTriggerDelay = 1;
