@@ -14,6 +14,10 @@ import org.usfirst.frc.team6179.robot.mappings.RobotMap;
 public class Shooter extends Subsystem {
 
     // Actuators
+    /**
+     * The two motors that actuate the shooter wheels.
+     * (There are two motors that are being controlled by this one speed controller because 麦麦说了).
+     */
     public TalonSRX shootMotor = new TalonSRX(RobotMap.shooterMotor);
     public Servo shooterServo = new Servo(RobotMap.shooterTriggerServo);
 
