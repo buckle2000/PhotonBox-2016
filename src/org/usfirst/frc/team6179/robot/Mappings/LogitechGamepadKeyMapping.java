@@ -1,4 +1,4 @@
-package org.usfirst.frc.team6179.robot.Mappings;
+package org.usfirst.frc.team6179.robot.mappings;
 
 /**
  * Created by CC on 2/26/16.

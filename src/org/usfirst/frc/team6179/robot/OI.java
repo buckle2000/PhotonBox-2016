@@ -5,6 +5,6 @@ package org.usfirst.frc.team6179.robot;
  */
 public interface OI {
 
-
+    double getShooterElevatorInput();
 
 }
