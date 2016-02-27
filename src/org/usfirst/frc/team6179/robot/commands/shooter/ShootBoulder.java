@@ -37,7 +37,7 @@ public class ShootBoulder extends Command {
 
     protected boolean isFinished() {
         // stop the command when designated delay has elapsed.
-        return timer.get() >= ShooterConfig.shooterStopDelay;
+        return boulderFired && timer.get() >= ShooterConfig.shooterStopDelay;
     }
 
     protected void end() {
@@ -52,7 +52,7 @@ public class ShootBoulder extends Command {
         // stop the wheels when the command ends.
         Robot.instance.shooter.shootMotor.set(0);
         // move back the trigger servo to allow for future boulder collection.
-        Robot.instance.shooter.shooterServo.setAngle(ShooterConfig.triggerServoBackPosition);
+        Robot.instance.shooter.triggerServo.set(ShooterConfig.triggerServoBackPosition);
 
         // memory clean up.
         timer.stop();
