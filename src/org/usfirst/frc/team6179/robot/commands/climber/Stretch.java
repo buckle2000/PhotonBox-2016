@@ -2,6 +2,7 @@ package org.usfirst.frc.team6179.robot.commands.climber;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team6179.robot.Robot;
+import org.usfirst.frc.team6179.robot.configurations.ClimberConfig;
 
 /**
  * A command which allows the climber to stretch more
@@ -14,7 +15,7 @@ public class Stretch extends Command {
 
     @Override
     protected void initialize() {
-        Robot.instance.climber.climberMotor.set(-1);
+        Robot.instance.climber.climberMotor.set(ClimberConfig.stretchingOutput);
     }
 
     @Override
