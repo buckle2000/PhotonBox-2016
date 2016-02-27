@@ -36,8 +36,7 @@ public class LogitechGamepad implements OI {
     public double getRotation() {
         return stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_LEFT_X);
     }
-
-    @Override
+    
     public double getLeftMovement() {
         return stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_LEFT_Y);
     }
