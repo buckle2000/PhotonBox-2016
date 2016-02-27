@@ -7,10 +7,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc.team6179.robot.subsystems.Arm;
-import org.usfirst.frc.team6179.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team6179.robot.subsystems.Shooter;
-import org.usfirst.frc.team6179.robot.subsystems.ShooterElevator;
+import org.usfirst.frc.team6179.robot.mappings.RobotMap;
+import org.usfirst.frc.team6179.robot.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -31,6 +29,7 @@ public class Robot extends IterativeRobot {
     public DriveTrain driveTrain;
     public Shooter shooter;
     public ShooterElevator elevator;
+    public Vision shooterVision;
     public Arm arm;
 
     /**
@@ -46,6 +45,7 @@ public class Robot extends IterativeRobot {
         driveTrain = new DriveTrain();
         shooter = new Shooter();
         elevator = new ShooterElevator();
+        shooterVision = new Vision(RobotMap.shooterCamera);
         arm = new Arm();
 
         oi = new LogitechGamepad();
