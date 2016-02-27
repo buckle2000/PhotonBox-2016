@@ -1,19 +1,23 @@
-package org.usfirst.frc.team6179.robot.commands.drivetrain;
+package org.usfirst.frc.team6179.robot.commands.arm;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team6179.robot.Robot;
 
-public class TankDriveWithJoystick extends Command {
+/**
+ * Created by CC on 2/27/16.
+ */
+public class RaiseArm extends Command {
 
-    public TankDriveWithJoystick() {
-        requires(Robot.instance.driveTrain);
+    public RaiseArm() {
+        requires(Robot.instance.arm);
     }
 
     protected void initialize() {
+        Robot.instance.arm.moveUp();
     }
 
     protected void execute() {
-        Robot.instance.driveTrain.tankDrive(Robot.instance.oi.getLeftMovement(), Robot.instance.oi.getRightMovement());
+
     }
 
     protected boolean isFinished() {
@@ -21,10 +25,11 @@ public class TankDriveWithJoystick extends Command {
     }
 
     protected void end() {
-
+        Robot.instance.arm.stop();
     }
 
     protected void interrupted() {
+        Robot.instance.arm.stop();
     }
 
 }
