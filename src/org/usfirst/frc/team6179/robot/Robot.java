@@ -38,12 +38,13 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
         Robot.instance = this;
 
-        oi = new LogitechGamepad();
         chooser = new SendableChooser();
         SmartDashboard.putData("Auto mode", chooser);
 
         shooter = new Shooter();
         elevator = new ShooterElevator();
+
+        oi = new LogitechGamepad();
     }
 
     /**
