@@ -4,11 +4,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team6179.robot.Robot;
 
 /**
- * Created by huangzhengcheng1 on 2/27/16.
+ * A command which allows the climber to stretch more
  */
-public class Relax extends Command {
+public class Stretch extends Command {
 
-    public Relax() {
+    public Stretch() {
         requires(Robot.instance.climber);
     }
 

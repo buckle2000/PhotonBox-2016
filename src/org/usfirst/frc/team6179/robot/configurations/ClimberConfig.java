@@ -5,7 +5,7 @@ package org.usfirst.frc.team6179.robot.configurations;
  */
 public class ClimberConfig {
 
-    public static double lockServoLockedPosition = 0.08;
-    public static double lockServoUnlockedPosition = 0.48;
+    public static double lockServoLockPosition = 0.08;
+    public static double lockServoUnlockPosition = 0.48;
 
 }

@@ -5,7 +5,7 @@ import org.usfirst.frc.team6179.robot.Robot;
 import org.usfirst.frc.team6179.robot.configurations.ClimberConfig;
 
 /**
- * Created by huangzhengcheng1 on 2/27/16.
+ * A command which unlocks the climber by setting the lock servo to the unlock position
  */
 public class UnlockClimber extends Command {
 
@@ -15,7 +15,7 @@ public class UnlockClimber extends Command {
 
     @Override
     protected void initialize() {
-        Robot.instance.climber.lockServo.setAngle(ClimberConfig.lockServoUnlockedPosition);
+        Robot.instance.climber.lockServo.setAngle(ClimberConfig.lockServoUnlockPosition);
     }
 
     @Override

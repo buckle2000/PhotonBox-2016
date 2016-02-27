@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team6179.robot.Robot;
 
 /**
- * Created by huangzhengcheng1 on 2/27/16.
+ * A Command which allows the climber to pull up the robot
  */
 public class Pull extends Command {
 
