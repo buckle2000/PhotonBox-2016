@@ -38,7 +38,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
         Robot.instance = this;
 
-        oi = new Extreme3DPro();
+        oi = new LogitechGamepad();
         chooser = new SendableChooser();
         SmartDashboard.putData("Auto mode", chooser);
 
