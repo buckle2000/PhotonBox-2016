@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6179.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import org.usfirst.frc.team6179.robot.mappings.LogitechGamepadKeyMapping;
 
 /**
  * Created by CC on 2/26/16.
@@ -21,6 +22,11 @@ public class LogitechGamepad implements OI {
         return 0;
     }
 
+    @Override
+    public double getShooterElevatorInput() {
+        return 0;
+    }
+
     public double getLeftMovement() {
         return 0;
     }
@@ -28,4 +34,5 @@ public class LogitechGamepad implements OI {
     public double getRightMovement() {
         return 0;
     }
+
 }

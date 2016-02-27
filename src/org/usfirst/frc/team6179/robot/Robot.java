@@ -42,6 +42,7 @@ public class Robot extends IterativeRobot {
         chooser = new SendableChooser();
         SmartDashboard.putData("Auto mode", chooser);
 
+        driveTrain = new DriveTrain();
         shooter = new Shooter();
         elevator = new ShooterElevator();
     }
