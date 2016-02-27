@@ -5,6 +5,32 @@ package org.usfirst.frc.team6179.robot;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class Extreme3DPro implements OI {
+
+    @Override
+    public double getMovement() {
+        return 0;
+    }
+
+    @Override
+    public double getRotation() {
+        return 0;
+    }
+
+    @Override
+    public double getLeftMovement() {
+        return 0;
+    }
+
+    @Override
+    public double getRightMovement() {
+        return 0;
+    }
+
+    @Override
+    public double getShooterElevatorInput() {
+        return 0;
+    }
+
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button

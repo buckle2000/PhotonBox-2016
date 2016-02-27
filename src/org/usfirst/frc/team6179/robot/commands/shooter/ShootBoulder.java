@@ -27,8 +27,10 @@ public class ShootBoulder extends Command {
 
     protected void execute() {
         if (!boulderFired && timer.get() >= ShooterConfig.shooterTriggerDelay) {
-            Robot.instance.shooter.triggerServo.setAngle(ShooterConfig.triggerServoForwardPosition);
+            Robot.instance.shooter.shooterServo.setAngle(ShooterConfig.triggerServoForwardPosition);
+
             timer.reset();
+            boulderFired = true;
             // not sure if the timer needs to be started again after reset.
         }
     }
