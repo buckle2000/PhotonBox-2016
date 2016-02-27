@@ -8,9 +8,14 @@ import org.usfirst.frc.team6179.robot.configurations.ClimberConfig;
  * A command which resets the climber lock servo to the locked position
  */
 public class ResetClimberLock extends Command {
+
+    public ResetClimberLock() {
+        requires(Robot.instance.climber);
+    }
+
     @Override
     protected void initialize() {
-        Robot.instance.climber.lockServo.setAngle(ClimberConfig.lockServoLockPosition);
+        Robot.instance.climber.lockServo.set(ClimberConfig.lockServoLockPosition);
     }
 
     @Override

@@ -15,7 +15,7 @@ public class UnlockClimber extends Command {
 
     @Override
     protected void initialize() {
-        Robot.instance.climber.lockServo.setAngle(ClimberConfig.lockServoUnlockPosition);
+        Robot.instance.climber.lockServo.set(ClimberConfig.lockServoUnlockPosition);
     }
 
     @Override
