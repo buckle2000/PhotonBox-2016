@@ -1,28 +1,34 @@
-package org.usfirst.frc.team6179.robot.commands;
+package org.usfirst.frc.team6179.robot.commands.drivetrain;
 
-public class DriveToDistance extends CommandBase {
-	double distance,speed,endTime;
-	
-    public DriveToDistance(double distance,double speed,double endTime) {
-    	requires(drivetrain);
-    	this.distance=distance;
-    	this.speed=speed;
-    	this.endTime=endTime;
+import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team6179.robot.Robot;
+
+// TODO: to be implemented in the future.
+public class DriveToDistance extends Command {
+    double distance;
+    double speed;
+    double endTime;
+
+    public DriveToDistance(double distance, double speed, double endTime) {
+        requires(Robot.instance.driveTrain);
+        this.distance = distance;
+        this.speed = speed;
+        this.endTime = endTime;
     }
 
     protected void initialize() {
     }
 
     protected void execute() {
-    	drivetrain.drive(speed, -speed);
+        Robot.instance.driveTrain.arcadeDrive(speed, 0);
     }
 
     protected boolean isFinished() {
-        return Math.abs(distance/speed)>endTime;
+        return Math.abs(distance / speed) > endTime;
     }
 
     protected void end() {
-    	drivetrain.drive(0, 0);
+        Robot.instance.driveTrain.arcadeDrive(0, 0);
     }
 
     protected void interrupted() {
