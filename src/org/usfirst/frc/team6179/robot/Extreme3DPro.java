@@ -26,11 +26,6 @@ public class Extreme3DPro implements OI {
     }
 
     @Override
-    public double getShooterElevatorInput() {
-        return 0;
-    }
-
-    @Override
     public double getLeftMovement() {
         return 0;
     }
