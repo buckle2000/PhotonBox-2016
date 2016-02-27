@@ -13,4 +13,9 @@ public class ShooterConfig {
     // the delay, in seconds, from when the trigger starts to deliver the boulder to when the shooter motors stop.
     public static double shooterStopDelay = 1;
 
+    /** The output signal to send to the shooter motors to make the boulder go outward. */
+    public static double outgoingOutput = -1;
+    /** The output signal to send to the shooter motors to make the boulder go inward. */
+    public static double ingoingOutput = 1;
+
 }
