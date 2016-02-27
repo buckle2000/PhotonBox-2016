@@ -1,69 +1,36 @@
 package org.usfirst.frc.team6179.robot.subsystems;
 
-import org.usfirst.frc.team6179.robot.Mappings.RobotMap;
-import org.usfirst.frc.team6179.robot.commands.ShooterDoNothing;
-
 import edu.wpi.first.wpilibj.Servo;
-import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import org.usfirst.frc.team6179.robot.mappings.RobotMap;
 
 /**
- * Created by Caroline on 2/26/16.
+ * A subsystem representing the Shooter on the robot,
+ * not including the elevator mechanism,
+ * dealing exclusively with shooting and collecting boulders.
  */
 public class Shooter extends Subsystem {
-    private SpeedController shootMotor = new TalonSRX(RobotMap.shootMotor),
-            pushrod = new TalonSRX(RobotMap.pushrod);
-    private Servo shooterServo = new Servo(RobotMap.shooterServo);
 
-    public static final double ANGLE = 170;
+    // Actuators
+    /**
+     * The two motors that actuate the shooter wheels.
+     * (There are two motors that are being controlled by this one speed controller because 麦麦说了).
+     */
+    public TalonSRX shootMotor = new TalonSRX(RobotMap.shooterMotor);
+    public Servo shooterServo = new Servo(RobotMap.shooterTriggerServo);
 
     public Shooter() {
-        LiveWindow.addActuator("Shooter", "Motor", (TalonSRX) shootMotor);
-        LiveWindow.addActuator("Wrist", "Pushrod", (TalonSRX) pushrod);
+        LiveWindow.addActuator("Shooter", "Motor", shootMotor);
         LiveWindow.addSensor("Shooter", "Servo", shooterServo);
     }
 
     public void initDefaultCommand() {
-        setDefaultCommand(new ShooterDoNothing());
     }
 
-    //shootMotor
-    public void shoot() {
-        shootMotor.set(1);
-    }
+    // TODO: add easy control for motor direction.
 
-    public void collect() {
-        shootMotor.set(-1);
-    }
-
-    public void shooterStop() {
-        shootMotor.set(0);
-    }
-
-    //pushrod
-    public void liftUp() {
-        pushrod.set(1);
-    }
-
-    public void liftDown() {
-        pushrod.set(-1);
-    }
-
-    public void pushrodStop() {
-        pushrod.set(0);
-    }
-
-    //shooterServo
-    //TEST
-    public void hold() {
-        shooterServo.setAngle(ANGLE);
-    }
-
-    public void release() {
-        shooterServo.setAngle(-ANGLE);
-    }
 }
 
 
