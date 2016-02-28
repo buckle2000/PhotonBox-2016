@@ -19,17 +19,15 @@ public class Shooter extends Subsystem {
      * (There are two motors that are being controlled by this one speed controller because 麦麦说了).
      */
     public TalonSRX shootMotor = new TalonSRX(RobotMap.shooterMotor);
-    public Servo shooterServo = new Servo(RobotMap.shooterTriggerServo);
+    public Servo triggerServo = new Servo(RobotMap.shooterTriggerServo);
 
     public Shooter() {
-        LiveWindow.addActuator("Shooter", "Motor", shootMotor);
-        LiveWindow.addSensor("Shooter", "Servo", shooterServo);
+        LiveWindow.addActuator("Shooter", "Shooter Motor", shootMotor);
+        LiveWindow.addSensor("Shooter", "Servo", triggerServo);
     }
 
     public void initDefaultCommand() {
     }
-
-    // TODO: add easy control for motor direction.
 
 }
 

@@ -14,7 +14,7 @@ public class ShooterElevator extends Subsystem {
     public Victor elevatorActuator = new Victor(RobotMap.shooterElevator);
 
     public ShooterElevator() {
-        LiveWindow.addActuator("Shooter", "电动推杆", elevatorActuator);
+        LiveWindow.addActuator("Shooter", "Elevator Motor", elevatorActuator);
     }
 
     public void initDefaultCommand() {

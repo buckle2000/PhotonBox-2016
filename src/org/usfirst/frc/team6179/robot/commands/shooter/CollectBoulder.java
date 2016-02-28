@@ -15,9 +15,9 @@ public class CollectBoulder extends Command {
 
     protected void initialize() {
         // start the wheels when the command starts.
-        Robot.instance.shooter.shootMotor.set(-1);
+        Robot.instance.shooter.shootMotor.set(ShooterConfig.ingoingOutput);
         // move back the trigger just in case if it isn't.
-        Robot.instance.shooter.shooterServo.setAngle(ShooterConfig.triggerServoBackPosition);
+        Robot.instance.shooter.triggerServo.set(ShooterConfig.triggerServoBackPosition);
     }
 
     protected void execute() {
