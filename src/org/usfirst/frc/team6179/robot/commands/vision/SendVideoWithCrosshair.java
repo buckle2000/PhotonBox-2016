@@ -2,6 +2,8 @@ package org.usfirst.frc.team6179.robot.commands.vision;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team6179.robot.Robot;
+import org.usfirst.frc.team6179.robot.configurations.VisionConfig;
 import org.usfirst.frc.team6179.robot.subsystems.Vision;
 
 /**
@@ -28,7 +30,7 @@ public class SendVideoWithCrosshair extends Command {
 
     @Override
     protected void execute() {
-        server.setImage(vision.showCrosshairOnImage(vision.grabPicture()));
+        server.setImage(vision.showCrosshairOnImage(vision.grabPicture(), (int)(Robot.instance.oi.getScaledCrosshairOffsetX() * VisionConfig.maxOffset), (int)(Robot.instance.oi.getScaledCrosshairOffsetY() * VisionConfig.maxOffset)));
     }
 
     @Override

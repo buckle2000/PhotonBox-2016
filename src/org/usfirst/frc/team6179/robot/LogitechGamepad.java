@@ -12,6 +12,7 @@ import org.usfirst.frc.team6179.robot.commands.vision.SendVideo;
 import org.usfirst.frc.team6179.robot.mappings.LogitechGamepadKeyMapping;
 
 public class LogitechGamepad implements OI {
+    // TODO: Resolve keymap conflict
 
     private Joystick stick;
 
@@ -48,12 +49,24 @@ public class LogitechGamepad implements OI {
 
     @Override
     public double getLeftMovement() {
-        return stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_LEFT_Y);
+//        return stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_LEFT_Y);
+        return 0;
     }
 
     @Override
     public double getRightMovement() {
-        return stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_RIGHT_Y);
+//        return stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_RIGHT_Y);
+        return 0;
+    }
+
+    @Override
+    public double getScaledCrosshairOffsetX() {
+        return stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_LEFT_X);
+    }
+
+    @Override
+    public double getScaledCrosshairOffsetY() {
+        return stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_LEFT_Y);
     }
 
     @Override

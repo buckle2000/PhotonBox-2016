@@ -27,6 +27,9 @@ public interface OI {
      */
     double getRightMovement();
 
+    double getScaledCrosshairOffsetX();
+
+    double getScaledCrosshairOffsetY();
     /**
      * Gets the movement value of the arm
      */
