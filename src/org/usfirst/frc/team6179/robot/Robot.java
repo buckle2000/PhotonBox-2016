@@ -31,6 +31,7 @@ public class Robot extends IterativeRobot {
     public ShooterElevator elevator;
     public Vision shooterVision;
     public Arm arm;
+    public Climber climber;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -47,6 +48,7 @@ public class Robot extends IterativeRobot {
         elevator = new ShooterElevator();
         shooterVision = new Vision(RobotMap.shooterCamera);
         arm = new Arm();
+        climber = new Climber();
 
         oi = new LogitechGamepad();
     }
