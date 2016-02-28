@@ -3,6 +3,8 @@ package org.usfirst.frc.team6179.robot.subsystems;
 import com.ni.vision.NIVision;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc.team6179.robot.Robot;
+import org.usfirst.frc.team6179.robot.commands.vision.SendVideoWithCrosshair;
 import org.usfirst.frc.team6179.robot.configurations.VisionConfig;
 import com.ni.vision.NIVision.Image;
 import com.ni.vision.NIVision.ImageType;
@@ -40,6 +42,7 @@ public class Vision extends Subsystem {
 
     @Override
     protected void initDefaultCommand() {
+        setDefaultCommand(new SendVideoWithCrosshair(Robot.instance.shooterVision));
     }
 
     /**
