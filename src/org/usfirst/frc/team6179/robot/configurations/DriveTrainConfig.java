@@ -1,8 +1,5 @@
 package org.usfirst.frc.team6179.robot.configurations;
 
-/**
- * Created by huangzhengcheng1 on 2/28/16.
- */
 public class DriveTrainConfig {
 
     /**
@@ -17,4 +14,24 @@ public class DriveTrainConfig {
     public static double accelerometerOffsetY = 42;
 
     public static double gyroSensitivity = 131.00;
+
+    /**
+     * The speed multiplier value used by default
+     */
+    public static double defaultSpeedMultiplier = 0.8;
+
+    /**
+     * The turn multiplier value used by default
+     */
+    public static double defaultTurnMultiplier = 0.6;
+
+    /**
+     * The speed multiplier value used when aiming
+     */
+    public static double aimSpeedMultiplier = 0.4;
+    /**
+     * The turn multiplier value used when aiming
+     */
+    public static double aimTurnMultiplier = 0.3;
+
 }
