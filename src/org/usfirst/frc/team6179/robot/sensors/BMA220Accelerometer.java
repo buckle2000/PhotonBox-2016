@@ -29,6 +29,13 @@ public class BMA220Accelerometer {
         return getBuffer().getShort(4) * 0.0625;
     }
 
+    /** Gets the acceleration along three axes */
+    public double[] getAccelerometerData() {
+        ByteBuffer buffer = getBuffer();
+        double[] data = {buffer.getShort(), buffer.getShort(), buffer.getShort()};
+        return data;
+    }
+
     private ByteBuffer getBuffer() {
         byte[] buffer = new byte[6];
 
