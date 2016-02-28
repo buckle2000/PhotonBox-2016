@@ -5,6 +5,6 @@ package org.usfirst.frc.team6179.robot;
  */
 public class Util {
     public static int limit(int value, int min, int max) {
-        return value > max ? max : value < min ? min : value;
+        return Math.max(min, Math.min(max, value));
     }
 }
