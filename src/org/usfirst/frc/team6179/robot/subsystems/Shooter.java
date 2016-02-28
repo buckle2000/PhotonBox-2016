@@ -29,8 +29,6 @@ public class Shooter extends Subsystem {
     public void initDefaultCommand() {
     }
 
-    // TODO: add easy control for motor direction.
-
 }
 
 
