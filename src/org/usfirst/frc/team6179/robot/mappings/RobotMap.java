@@ -19,6 +19,7 @@ public class RobotMap {
     // Sensors
     public static final int channelA = 0;
     public static final int channelB = 1;
+    public static final int shooterElevatorLimitSwitch = 2;
 
     // Cameras
     public static final String shooterCamera = "cam0";
