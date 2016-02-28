@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team6179.robot.commands.arm.LowerArm;
 import org.usfirst.frc.team6179.robot.commands.arm.RaiseArm;
+import org.usfirst.frc.team6179.robot.commands.drivetrain.DriveStraight;
 import org.usfirst.frc.team6179.robot.commands.drivetrain.PutGyroData;
 import org.usfirst.frc.team6179.robot.commands.shooter.CollectBoulder;
 import org.usfirst.frc.team6179.robot.commands.shooter.ShootBoulder;
@@ -33,6 +34,7 @@ public class LogitechGamepad implements OI {
         // Vision
         SmartDashboard.putData("Display Shooter Camera Video", new SendVideo(Robot.instance.shooterVision));
         SmartDashboard.putData("Put Gyro Data", new PutGyroData());
+        SmartDashboard.putData("Drive Straight", new DriveStraight());
         // display commands on dashboard for easy testing. //
 
     }
