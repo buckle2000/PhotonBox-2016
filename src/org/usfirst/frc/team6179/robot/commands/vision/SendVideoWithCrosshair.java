@@ -2,7 +2,6 @@ package org.usfirst.frc.team6179.robot.commands.vision;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Command;
-import javafx.scene.Camera;
 import org.usfirst.frc.team6179.robot.subsystems.Vision;
 
 /**
