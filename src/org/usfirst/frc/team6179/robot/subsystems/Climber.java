@@ -8,8 +8,13 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team6179.robot.mappings.RobotMap;
 
 public class Climber extends Subsystem {
+    /** The servo used to lock the climber */
     public Servo lockServo = new Servo(RobotMap.climberLockServo);
+
+    /** The motor used controls the stretch of the climber by tightening or relaxing the rope that holds the climber */
     public Victor climberMotor = new Victor(RobotMap.climberMotor);
+
+    /** The encoder that sends back data from the climber motor */
     public Encoder climberMotorEncoder = new Encoder(RobotMap.channelA, RobotMap.channelB, true, Encoder.EncodingType.k4X);
 
     public Climber() {
