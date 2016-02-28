@@ -29,6 +29,14 @@ public class GY521GyroAccelerometer {
         return getRawData()[2];
     }
 
+    public double getGyroX() {
+        return getRawData()[3];
+    }
+
+    public double getGyroY() {
+        return getRawData()[4];
+    }
+
     public double getGyroZ() {
         return getRawData()[5] / DriveTrainConfig.gyroSensitivity;
     }
