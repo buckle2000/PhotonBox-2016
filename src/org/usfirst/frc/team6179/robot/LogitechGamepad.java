@@ -3,8 +3,8 @@ package org.usfirst.frc.team6179.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc.team6179.robot.commands.drivetrain.DriveStraight;
 import org.usfirst.frc.team6179.robot.commands.AimMode;
+import org.usfirst.frc.team6179.robot.commands.drivetrain.DriveStraight;
 import org.usfirst.frc.team6179.robot.commands.drivetrain.PutGyroData;
 import org.usfirst.frc.team6179.robot.commands.shooter.CollectBoulder;
 import org.usfirst.frc.team6179.robot.commands.shooter.ShootBoulder;
@@ -39,12 +39,12 @@ public class LogitechGamepad implements OI {
 
     @Override
     public double getMovement() {
-        return stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_LEFT_Y);
+        return -stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_LEFT_Y);
     }
 
     @Override
     public double getRotation() {
-        return stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_LEFT_X);
+        return -stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_LEFT_X);
     }
 
     @Override
@@ -71,7 +71,7 @@ public class LogitechGamepad implements OI {
 
     @Override
     public double getArmMovement() {
-        return stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_RIGHT_TRIGGER - LogitechGamepadKeyMapping.AXIS_LEFT_TRIGGER);
+        return stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_RIGHT_TRIGGER) - stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_LEFT_TRIGGER);
     }
 
     @Override
