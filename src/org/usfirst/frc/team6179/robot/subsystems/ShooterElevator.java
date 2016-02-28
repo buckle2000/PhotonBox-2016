@@ -1,5 +1,6 @@
 package org.usfirst.frc.team6179.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -13,8 +14,11 @@ public class ShooterElevator extends Subsystem {
 
     public Victor elevatorActuator = new Victor(RobotMap.shooterElevator);
 
+    public DigitalInput limitSwitch = new DigitalInput(RobotMap.shooterElevatorLimitSwitch);
+
     public ShooterElevator() {
-        LiveWindow.addActuator("Shooter", "电动推杆", elevatorActuator);
+        LiveWindow.addActuator("Shooter", "Elevator Motor", elevatorActuator);
+        LiveWindow.addSensor("Shooter", "Limit Switch", limitSwitch);
     }
 
     public void initDefaultCommand() {
