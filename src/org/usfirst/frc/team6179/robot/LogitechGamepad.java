@@ -58,6 +58,16 @@ public class LogitechGamepad implements OI {
     }
 
     @Override
+    public double getScaledCrosshairOffsetX() {
+        return stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_LEFT_X);
+    }
+
+    @Override
+    public double getScaledCrosshairOffsetY() {
+        return stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_LEFT_Y);
+    }
+
+    @Override
     public double getShooterElevatorInput() {
         return stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_RIGHT_Y);
     }

@@ -29,4 +29,9 @@ public interface OI {
      * Gets the movement value of the right wheels of the robot
      */
     double getRightMovement();
+
+
+    double getScaledCrosshairOffsetX();
+
+    double getScaledCrosshairOffsetY();
 }

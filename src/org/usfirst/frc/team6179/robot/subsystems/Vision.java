@@ -30,7 +30,7 @@ public class Vision extends Subsystem {
     private String cameraName;
 
     private Image frame;
-    private GetImageSizeResult size;
+    public GetImageSizeResult size;
 
     public Vision(String cameraName) {
         this.cameraName = cameraName;
@@ -74,11 +74,15 @@ public class Vision extends Subsystem {
     }
 
     public Image showCrosshairOnImage(Image image) {
-        Point crossStart = new Point(size.width / 2 - VisionConfig.crosshairSize, size.height);
-        Point crossEnd = new Point(size.width / 2 + VisionConfig.crosshairSize, size.height);
+        return showCrosshairOnImage(image, 0, 0);
+    }
 
-        Point verticalStart = new Point(size.width, size.height / 2 - VisionConfig.crosshairSize);
-        Point verticalEnd = new Point(size.width, size.height / 2 + VisionConfig.crosshairSize);
+    public Image showCrosshairOnImage(Image image, int offsetX, int offsetY) {
+        Point crossStart = new Point(size.width / 2 - VisionConfig.crosshairSize / 2 + offsetX, size.height / 2 + offsetY);
+        Point crossEnd = new Point(size.width / 2 + VisionConfig.crosshairSize / 2 + offsetX, size.height / 2 + offsetY);
+
+        Point verticalStart = new Point(size.width / 2 + offsetX, size.height / 2 - VisionConfig.crosshairSize / 2 + offsetY);
+        Point verticalEnd = new Point(size.width / 2 + offsetX, size.height / 2 + VisionConfig.crosshairSize / 2 + offsetY);
 
         NIVision.imaqDrawLineOnImage(image, image, NIVision.DrawMode.DRAW_VALUE, crossStart, crossEnd, 1);
         NIVision.imaqDrawLineOnImage(image, image, NIVision.DrawMode.DRAW_VALUE, verticalStart, verticalEnd, 1);
