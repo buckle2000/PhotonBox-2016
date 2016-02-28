@@ -10,4 +10,6 @@ public class VisionConfig {
      */
     public static int autoCaptureImageQuality = 50;
 
+    public static int crosshairSize = 44;
+
 }
