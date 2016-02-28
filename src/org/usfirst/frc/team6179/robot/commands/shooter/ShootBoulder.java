@@ -19,7 +19,7 @@ public class ShootBoulder extends Command {
 
     protected void initialize() {
         // start the wheels when the command starts.
-        Robot.instance.shooter.shootMotor.set(1);
+        Robot.instance.shooter.shootMotor.set(ShooterConfig.outgoingOutput);
 
         timer = new Timer();
         timer.start();
@@ -27,7 +27,7 @@ public class ShootBoulder extends Command {
 
     protected void execute() {
         if (!boulderFired && timer.get() >= ShooterConfig.shooterTriggerDelay) {
-            Robot.instance.shooter.shooterServo.setAngle(ShooterConfig.triggerServoForwardPosition);
+            Robot.instance.shooter.triggerServo.set(ShooterConfig.triggerServoForwardPosition);
 
             timer.reset();
             boulderFired = true;
@@ -53,6 +53,9 @@ public class ShootBoulder extends Command {
         Robot.instance.shooter.shootMotor.set(0);
         // move back the trigger servo to allow for future boulder collection.
         Robot.instance.shooter.triggerServo.set(ShooterConfig.triggerServoBackPosition);
+
+        // reset state
+        boulderFired = false;
 
         // memory clean up.
         timer.stop();
