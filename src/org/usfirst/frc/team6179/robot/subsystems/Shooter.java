@@ -22,7 +22,7 @@ public class Shooter extends Subsystem {
     public Servo triggerServo = new Servo(RobotMap.shooterTriggerServo);
 
     public Shooter() {
-        LiveWindow.addActuator("Shooter", "Motor", shootMotor);
+        LiveWindow.addActuator("Shooter", "Shooter Motor", shootMotor);
         LiveWindow.addSensor("Shooter", "Servo", triggerServo);
     }
 
