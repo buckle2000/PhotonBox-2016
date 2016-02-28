@@ -70,16 +70,20 @@ public class Vision extends Subsystem {
         NIVision.IMAQdxGrab(session, frame, 1);
         size = NIVision.imaqGetImageSize(frame);
 
+        return frame;
+    }
+
+    public Image showCrosshairOnImage(Image image) {
         Point crossStart = new Point(size.width / 2 - VisionConfig.crosshairSize, size.height);
         Point crossEnd = new Point(size.width / 2 + VisionConfig.crosshairSize, size.height);
 
         Point verticalStart = new Point(size.width, size.height / 2 - VisionConfig.crosshairSize);
         Point verticalEnd = new Point(size.width, size.height / 2 + VisionConfig.crosshairSize);
 
-        NIVision.imaqDrawLineOnImage(frame, frame, NIVision.DrawMode.DRAW_VALUE, crossStart, crossEnd, 1);
-        NIVision.imaqDrawLineOnImage(frame, frame, NIVision.DrawMode.DRAW_VALUE, verticalStart, verticalEnd, 1);
+        NIVision.imaqDrawLineOnImage(image, image, NIVision.DrawMode.DRAW_VALUE, crossStart, crossEnd, 1);
+        NIVision.imaqDrawLineOnImage(image, image, NIVision.DrawMode.DRAW_VALUE, verticalStart, verticalEnd, 1);
 
-        return frame;
+        return image;
     }
 
     /**

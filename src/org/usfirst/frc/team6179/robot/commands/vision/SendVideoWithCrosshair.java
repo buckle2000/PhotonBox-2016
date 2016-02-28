@@ -28,7 +28,7 @@ public class SendVideoWithCrosshair extends Command {
 
     @Override
     protected void execute() {
-        server.setImage(vision.grabPicture());
+        server.setImage(vision.showCrosshairOnImage(vision.grabPicture()));
     }
 
     @Override
