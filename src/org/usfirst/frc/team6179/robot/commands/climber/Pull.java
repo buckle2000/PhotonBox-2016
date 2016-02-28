@@ -25,6 +25,7 @@ public class Pull extends Command {
 
     @Override
     protected boolean isFinished() {
+        // This command ends only when the driver releases the controlling joystick button.
         return false;
     }
 
