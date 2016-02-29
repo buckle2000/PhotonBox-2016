@@ -1,8 +1,5 @@
 package org.usfirst.frc.team6179.robot;
 
-/**
- * Created by CC on 2/26/16.
- */
 public interface OI {
 
     /**
@@ -29,4 +26,12 @@ public interface OI {
      * Gets the movement value of the right wheels of the robot
      */
     double getRightMovement();
+
+    double getScaledCrosshairOffsetX();
+
+    double getScaledCrosshairOffsetY();
+    /**
+     * Gets the movement value of the arm
+     */
+    double getArmMovement();
 }
