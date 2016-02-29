@@ -33,6 +33,7 @@ public class DriveTrain extends Subsystem {
 
     public DriveTrain() {
         drive = new RobotDrive(RobotMap.leftMotor, RobotMap.rightMotor);
+        timer = new Timer();
         gy521 = new GY521GyroAccelerometer();
         timer.start();
 //        accelerometer = new BMA220Accelerometer();
