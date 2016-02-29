@@ -20,7 +20,7 @@ public class ElevateWithJoystick extends Command {
     }
 
     protected boolean isFinished() {
-        return false;
+        return Robot.instance.elevator.limitSwitch.get();
     }
 
     protected void end() {
