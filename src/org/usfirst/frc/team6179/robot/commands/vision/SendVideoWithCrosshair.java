@@ -52,11 +52,11 @@ public class SendVideoWithCrosshair extends Command {
 
     @Override
     protected void end() {
-
+        vision.stopCamera();
     }
 
     @Override
     protected void interrupted() {
-
+        vision.stopCamera();
     }
 }
