@@ -12,7 +12,6 @@ public class CollectBoulder extends Command {
 
     public CollectBoulder() {
         requires(Robot.instance.shooter);
-        requires(Robot.instance.arm);
     }
 
     protected void initialize() {
