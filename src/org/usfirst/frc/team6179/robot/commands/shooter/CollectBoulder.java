@@ -2,6 +2,7 @@ package org.usfirst.frc.team6179.robot.commands.shooter;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team6179.robot.Robot;
+import org.usfirst.frc.team6179.robot.configurations.ArmConfig;
 import org.usfirst.frc.team6179.robot.configurations.ShooterConfig;
 
 /**
@@ -11,9 +12,12 @@ public class CollectBoulder extends Command {
 
     public CollectBoulder() {
         requires(Robot.instance.shooter);
+        requires(Robot.instance.arm);
     }
 
     protected void initialize() {
+        // star the roller on the arm when the command starts.
+        Robot.instance.arm.intakeMotor.set(ArmConfig.ingoingOutput);
         // start the wheels when the command starts.
         Robot.instance.shooter.shootMotor.set(ShooterConfig.ingoingOutput);
         // move back the trigger just in case if it isn't.
