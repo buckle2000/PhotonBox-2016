@@ -100,7 +100,5 @@ public class Vision extends Subsystem {
     public void stopCamera() {
         NIVision.IMAQdxStopAcquisition(session);
         NIVision.IMAQdxCloseCamera(session);
-
-        cameraName = null;
     }
 }
