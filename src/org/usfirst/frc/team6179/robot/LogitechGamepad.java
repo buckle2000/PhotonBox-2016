@@ -32,7 +32,7 @@ public class LogitechGamepad implements OI {
         SmartDashboard.putData("Collect Boulder", new CollectBoulder());
         // Vision
         SmartDashboard.putData("Display Shooter Camera Video", new SendVideo(Robot.instance.shooterVision));
-        SmartDashboard.putData("Display Shooter Camera Video", new SendVideoWithCrosshair(Robot.instance.shooterVision));
+        SmartDashboard.putData("Display Shooter Camera Video with Crosshair", new SendVideoWithCrosshair(Robot.instance.shooterVision));
         SmartDashboard.putData("Put Gyro Data", new PutGyroData());
         SmartDashboard.putData("Drive Straight", new DriveStraight());
         // display commands on dashboard for easy testing. //
