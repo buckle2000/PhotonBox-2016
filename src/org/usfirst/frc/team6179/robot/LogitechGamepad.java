@@ -9,6 +9,7 @@ import org.usfirst.frc.team6179.robot.commands.drivetrain.PutGyroData;
 import org.usfirst.frc.team6179.robot.commands.shooter.CollectBoulder;
 import org.usfirst.frc.team6179.robot.commands.shooter.ShootBoulder;
 import org.usfirst.frc.team6179.robot.commands.vision.SendVideo;
+import org.usfirst.frc.team6179.robot.commands.vision.SendVideoWithCrosshair;
 import org.usfirst.frc.team6179.robot.mappings.LogitechGamepadKeyMapping;
 
 public class LogitechGamepad implements OI {
@@ -31,6 +32,7 @@ public class LogitechGamepad implements OI {
         SmartDashboard.putData("Collect Boulder", new CollectBoulder());
         // Vision
         SmartDashboard.putData("Display Shooter Camera Video", new SendVideo(Robot.instance.shooterVision));
+        SmartDashboard.putData("Display Shooter Camera Video", new SendVideoWithCrosshair(Robot.instance.shooterVision));
         SmartDashboard.putData("Put Gyro Data", new PutGyroData());
         SmartDashboard.putData("Drive Straight", new DriveStraight());
         // display commands on dashboard for easy testing. //

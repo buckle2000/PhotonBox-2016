@@ -82,17 +82,9 @@ public class Vision extends Subsystem {
     }
 
     public Image showCrosshairOnImage(Image image, int offsetX, int offsetY) {
-        Point crossStart = new Point(size.width / 2 - VisionConfig.crosshairSize / 2 + offsetX, size.height / 2 + offsetY);
-        Point crossEnd = new Point(size.width / 2 + VisionConfig.crosshairSize / 2 + offsetX, size.height / 2 + offsetY);
-        Rect crossRect = new Rect(size.height / 2 - VisionConfig.crosshairLineWidth / 2 + offsetY, size.width / 2 - VisionConfig.crosshairSize / 2 + offsetX, VisionConfig.crosshairSize, VisionConfig.crosshairSize);
+        Rect crossRect = new Rect(size.height / 2 - VisionConfig.crosshairLineWidth / 2 + offsetY, size.width / 2 - VisionConfig.crosshairSize / 2 + offsetX, VisionConfig.crosshairLineWidth, VisionConfig.crosshairSize);
 
-        Point verticalStart = new Point(size.width / 2 + offsetX, size.height / 2 - VisionConfig.crosshairSize / 2 + offsetY);
-        Point verticalEnd = new Point(size.width / 2 + offsetX, size.height / 2 + VisionConfig.crosshairSize / 2 + offsetY);
-        Rect verticalRect = new Rect(size.height / 2 - VisionConfig.crosshairSize / 2 + offsetY, size.width / 2 - VisionConfig.crosshairLineWidth / 2 + offsetX, VisionConfig.crosshairSize, VisionConfig.crosshairSize);
-
-
-        NIVision.imaqDrawLineOnImage(image, image, NIVision.DrawMode.DRAW_VALUE, crossStart, crossEnd, 1);
-        NIVision.imaqDrawLineOnImage(image, image, NIVision.DrawMode.PAINT_VALUE, verticalStart, verticalEnd, 1);
+        Rect verticalRect = new Rect(size.height / 2 - VisionConfig.crosshairSize / 2 + offsetY, size.width / 2 - VisionConfig.crosshairLineWidth / 2 + offsetX, VisionConfig.crosshairSize, VisionConfig.crosshairLineWidth);
 
         NIVision.imaqDrawShapeOnImage(image, image, crossRect, NIVision.DrawMode.PAINT_VALUE, NIVision.ShapeMode.SHAPE_RECT, 0);
         NIVision.imaqDrawShapeOnImage(image, image, verticalRect, NIVision.DrawMode.PAINT_VALUE, NIVision.ShapeMode.SHAPE_RECT, 0);
