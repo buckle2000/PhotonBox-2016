@@ -16,6 +16,6 @@ public class VisionConfig {
 
     public static int offsetIncrement = 10;
 
-    public static int maxOffset = 100;
+    public static int maxOffset = 300;
 
 }

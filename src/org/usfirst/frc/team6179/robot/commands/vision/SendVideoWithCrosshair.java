@@ -18,15 +18,8 @@ public class SendVideoWithCrosshair extends Command {
     private Vision vision;
     private CameraServer server;
 
-    private int offsetX;
-    private int offsetY;
-
     public SendVideoWithCrosshair(Vision vision) {
         this.vision = vision;
-
-        offsetX = 0;
-        offsetY = 0;
-
         requires(vision);
     }
 
@@ -38,11 +31,11 @@ public class SendVideoWithCrosshair extends Command {
 
     @Override
     protected void execute() {
-        SmartDashboard.putNumber("Crosshair offset X", offsetX);
-        SmartDashboard.putNumber("Crosshair offset Y", offsetY);
-        offsetX = Util.limit((int)SmartDashboard.getNumber("Crosshair offset X") + (int)(Robot.instance.oi.getScaledCrosshairOffsetX() * VisionConfig.offsetIncrement), -VisionConfig.maxOffset, VisionConfig.maxOffset);
-        offsetY = Util.limit((int)SmartDashboard.getNumber("Crosshair offset Y") + (int)(Robot.instance.oi.getScaledCrosshairOffsetY() * VisionConfig.offsetIncrement), -VisionConfig.maxOffset, VisionConfig.maxOffset);
-        server.setImage(vision.showCrosshairOnImage(vision.grabPicture(), offsetX, offsetY));
+        Robot.instance.shooterVision.crosshairOffsetX = Util.limit(Robot.instance.shooterVision.crosshairOffsetX + (int)(Robot.instance.oi.getScaledCrosshairOffsetX() * VisionConfig.offsetIncrement), -VisionConfig.maxOffset, VisionConfig.maxOffset);
+        Robot.instance.shooterVision.crosshairOffsetY = Util.limit(Robot.instance.shooterVision.crosshairOffsetY + (int)(Robot.instance.oi.getScaledCrosshairOffsetY() * VisionConfig.offsetIncrement), -VisionConfig.maxOffset, VisionConfig.maxOffset);
+        SmartDashboard.putNumber("Crosshair offset X", Robot.instance.shooterVision.crosshairOffsetX);
+        SmartDashboard.putNumber("Crosshair offset Y", Robot.instance.shooterVision.crosshairOffsetY);
+        server.setImage(vision.showCrosshairOnImage(vision.grabPicture(), Robot.instance.shooterVision.crosshairOffsetX, Robot.instance.shooterVision.crosshairOffsetY));
     }
 
     @Override

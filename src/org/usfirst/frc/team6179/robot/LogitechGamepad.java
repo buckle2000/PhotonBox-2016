@@ -8,6 +8,7 @@ import org.usfirst.frc.team6179.robot.commands.drivetrain.DriveStraight;
 import org.usfirst.frc.team6179.robot.commands.drivetrain.PutGyroData;
 import org.usfirst.frc.team6179.robot.commands.shooter.CollectBoulder;
 import org.usfirst.frc.team6179.robot.commands.shooter.ShootBoulder;
+import org.usfirst.frc.team6179.robot.commands.vision.ResetCrosshair;
 import org.usfirst.frc.team6179.robot.commands.vision.SendVideo;
 import org.usfirst.frc.team6179.robot.commands.vision.SendVideoWithCrosshair;
 import org.usfirst.frc.team6179.robot.mappings.LogitechGamepadKeyMapping;
@@ -23,6 +24,7 @@ public class LogitechGamepad implements OI {
         // bind buttons to commands. //
         new JoystickButton(stick, LogitechGamepadKeyMapping.BTN_X).toggleWhenPressed(new CollectBoulder());
         new JoystickButton(stick, LogitechGamepadKeyMapping.BTN_LB).whenPressed(new ShootBoulder());
+        new JoystickButton(stick, LogitechGamepadKeyMapping.BTN_A).whenPressed(new ResetCrosshair());
         new JoystickButton(stick, LogitechGamepadKeyMapping.BTN_RB).whileHeld(new AimMode());
         // bind buttons to commands. //
 
@@ -41,12 +43,14 @@ public class LogitechGamepad implements OI {
 
     @Override
     public double getMovement() {
-        return -stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_LEFT_Y);
+//        return -stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_LEFT_Y);
+        return 0;
     }
 
     @Override
     public double getRotation() {
-        return -stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_LEFT_X);
+//        return -stick.getRawAxis(LogitechGamepadKeyMapping.AXIS_LEFT_X);
+        return 0;
     }
 
     @Override

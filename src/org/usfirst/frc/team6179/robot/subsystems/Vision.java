@@ -35,6 +35,9 @@ public class Vision extends Subsystem {
     private Image frame;
     public GetImageSizeResult size;
 
+    public int crosshairOffsetX = 0;
+    public int crosshairOffsetY = 0;
+
     public Vision(String cameraName) {
         this.cameraName = cameraName;
 
