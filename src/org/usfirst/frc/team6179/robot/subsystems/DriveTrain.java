@@ -18,22 +18,12 @@ public class DriveTrain extends Subsystem {
     public double turnMultiplier = 0.6;
 
     // Indicates whether the speed input should be squared
-    public boolean squaredInput = true;
-
-    // private BMA220Accelerometer accelerometer;
-//    public GY521GyroAccelerometer gy521;
-
-    public double angle;
+    public boolean squaredInput = false;
 
     private RobotDrive drive;
 
-//    private Timer timer;
-
     public DriveTrain() {
         drive = new RobotDrive(RobotMap.leftMotor, RobotMap.rightMotor);
-//        gy521 = new GY521GyroAccelerometer();
-//        timer.start();
-//        accelerometer = new BMA220Accelerometer();
     }
 
     public void arcadeDrive(double movement, double rotation) {
@@ -46,14 +36,6 @@ public class DriveTrain extends Subsystem {
 
     public void stop() {
         drive.arcadeDrive(0, 0);
-    }
-
-    public double getAngularVelocity() {
-//        double angularVelocity = gy521.getGyroZ();
-//        angle += timer.get() * angularVelocity;
-//        timer.reset();
-//        return gy521.getGyroZ();
-        return 0;
     }
 
     public void initDefaultCommand() {
