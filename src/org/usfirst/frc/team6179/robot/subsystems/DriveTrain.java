@@ -2,9 +2,11 @@
 package org.usfirst.frc.team6179.robot.subsystems;
 
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team6179.robot.commands.drivetrain.ArcadeDriveWithJoystick;
 import org.usfirst.frc.team6179.robot.mappings.RobotMap;
+import org.usfirst.frc.team6179.robot.sensors.GY521GyroAccelerometer;
 
 /**
  *
@@ -21,18 +23,18 @@ public class DriveTrain extends Subsystem {
     public boolean squaredInput = true;
 
     // private BMA220Accelerometer accelerometer;
-//    public GY521GyroAccelerometer gy521;
+    public GY521GyroAccelerometer gy521;
 
     public double angle;
 
     private RobotDrive drive;
 
-//    private Timer timer;
+    private Timer timer;
 
     public DriveTrain() {
         drive = new RobotDrive(RobotMap.leftMotor, RobotMap.rightMotor);
-//        gy521 = new GY521GyroAccelerometer();
-//        timer.start();
+        gy521 = new GY521GyroAccelerometer();
+        timer.start();
 //        accelerometer = new BMA220Accelerometer();
     }
 
@@ -49,11 +51,10 @@ public class DriveTrain extends Subsystem {
     }
 
     public double getAngularVelocity() {
-//        double angularVelocity = gy521.getGyroZ();
-//        angle += timer.get() * angularVelocity;
-//        timer.reset();
-//        return gy521.getGyroZ();
-        return 0;
+        double angularVelocity = gy521.getGyroZ();
+        angle += timer.get() * angularVelocity;
+        timer.reset();
+        return gy521.getGyroZ();
     }
 
     public void initDefaultCommand() {

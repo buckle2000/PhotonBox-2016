@@ -12,6 +12,8 @@ public class VisionConfig {
 
     public static int crosshairSize = 44;
 
+    public static int offsetIncrement = 10;
+
     public static int maxOffset = 100;
 
 }
