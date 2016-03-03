@@ -19,11 +19,15 @@ public class ElevateWithJoystick extends Command {
         double output = Robot.instance.oi.getShooterElevatorInput();
         // if the designated output signal is to raise the Shooter, and the limit switch is activated, don't allow the elevator mechanism to move.
         // and this part is wrong.
-//        if (output > 0 && !Robot.instance.elevator.limitSwitch.get()) {
-//            output = 0;
-//        }
-        Robot.instance.elevator.elevatorActuator.set(output);
-
+        if (!Robot.instance.elevator.limitSwitch.get()) {
+            if (output > 0) {
+                Robot.instance.elevator.elevatorActuator.set(0);
+            } else {
+                Robot.instance.elevator.elevatorActuator.set(output);
+            }
+        } else {
+            Robot.instance.elevator.elevatorActuator.set(output);
+        }
     }
 
     protected boolean isFinished() {
