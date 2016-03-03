@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6179.robot.commands.climber;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team6179.robot.Robot;
 
 /**
@@ -20,6 +21,7 @@ public class MoveLockWithJoystick extends Command {
     @Override
     protected void execute() {
         Robot.instance.climber.lockServo.set(Robot.instance.oi.getClimberLockServoMovement());
+        SmartDashboard.putNumber("Climber Lock Servo Position", Robot.instance.climber.lockServo.get());
     }
 
     @Override
