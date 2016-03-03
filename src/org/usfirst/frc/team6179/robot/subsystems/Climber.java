@@ -19,8 +19,8 @@ public class Climber extends Subsystem {
 
     public Climber() {
         LiveWindow.addActuator("Climber", "Lock Servo", lockServo);
-        LiveWindow.addActuator("Wrist", "GearMotor", climberMotor);
-        LiveWindow.addSensor("Wrist", "Encoder", climberMotorEncoder);
+        LiveWindow.addActuator("Climber", "GearMotor", climberMotor);
+        LiveWindow.addSensor("Climber", "Encoder", climberMotorEncoder);
     }
 
     public void initDefaultCommand() {
