@@ -3,33 +3,34 @@ package org.usfirst.frc.team6179.robot.commands.arm;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team6179.robot.Robot;
 
-/**
- * Created by CC on 2/27/16.
- */
-public class LowerArm extends Command {
+public class MoveArm extends Command {
 
-    public LowerArm() {
+    public MoveArm() {
         requires(Robot.instance.arm);
     }
 
+    @Override
     protected void initialize() {
-        Robot.instance.arm.moveDown();
+
     }
 
+    @Override
     protected void execute() {
-
+        Robot.instance.arm.armMotor.set(Robot.instance.oi.getArmMovement());
     }
 
+    @Override
     protected boolean isFinished() {
         return false;
     }
 
+    @Override
     protected void end() {
-        Robot.instance.arm.stop();
+
     }
 
+    @Override
     protected void interrupted() {
-        Robot.instance.arm.stop();
-    }
 
+    }
 }

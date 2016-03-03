@@ -2,6 +2,10 @@ package org.usfirst.frc.team6179.robot.commands.vision;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc.team6179.robot.Robot;
+import org.usfirst.frc.team6179.robot.Util;
+import org.usfirst.frc.team6179.robot.configurations.VisionConfig;
 import org.usfirst.frc.team6179.robot.subsystems.Vision;
 
 /**
@@ -16,7 +20,6 @@ public class SendVideoWithCrosshair extends Command {
 
     public SendVideoWithCrosshair(Vision vision) {
         this.vision = vision;
-
         requires(vision);
     }
 
@@ -28,7 +31,11 @@ public class SendVideoWithCrosshair extends Command {
 
     @Override
     protected void execute() {
-        server.setImage(vision.showCrosshairOnImage(vision.grabPicture()));
+        Robot.instance.shooterVision.crosshairOffsetX = Util.limit(Robot.instance.shooterVision.crosshairOffsetX + (int)(Robot.instance.oi.getScaledCrosshairOffsetX() * VisionConfig.offsetIncrement), -VisionConfig.maxOffset, VisionConfig.maxOffset);
+        Robot.instance.shooterVision.crosshairOffsetY = Util.limit(Robot.instance.shooterVision.crosshairOffsetY + (int)(Robot.instance.oi.getScaledCrosshairOffsetY() * VisionConfig.offsetIncrement), -VisionConfig.maxOffset, VisionConfig.maxOffset);
+        SmartDashboard.putNumber("Crosshair offset X", Robot.instance.shooterVision.crosshairOffsetX);
+        SmartDashboard.putNumber("Crosshair offset Y", Robot.instance.shooterVision.crosshairOffsetY);
+        server.setImage(vision.showCrosshairOnImage(vision.grabPicture(), Robot.instance.shooterVision.crosshairOffsetX, Robot.instance.shooterVision.crosshairOffsetY));
     }
 
     @Override
@@ -38,11 +45,11 @@ public class SendVideoWithCrosshair extends Command {
 
     @Override
     protected void end() {
-
+        vision.stopCamera();
     }
 
     @Override
     protected void interrupted() {
-
+        vision.stopCamera();
     }
 }
