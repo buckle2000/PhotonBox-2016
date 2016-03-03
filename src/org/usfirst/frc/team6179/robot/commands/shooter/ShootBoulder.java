@@ -54,6 +54,9 @@ public class ShootBoulder extends Command {
         // move back the trigger servo to allow for future boulder collection.
         Robot.instance.shooter.triggerServo.set(ShooterConfig.triggerServoBackPosition);
 
+        // reset state
+        boulderFired = false;
+
         // memory clean up.
         timer.stop();
         timer = null;

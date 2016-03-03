@@ -1,8 +1,5 @@
 package org.usfirst.frc.team6179.robot;
 
-/**
- * Created by CC on 2/26/16.
- */
 public interface OI {
 
     /**
@@ -31,4 +28,12 @@ public interface OI {
     double getRightMovement();
 
     double getClimberLockServoMovement();
+
+    double getScaledCrosshairOffsetX();
+
+    double getScaledCrosshairOffsetY();
+    /**
+     * Gets the movement value of the arm
+     */
+    double getArmMovement();
 }

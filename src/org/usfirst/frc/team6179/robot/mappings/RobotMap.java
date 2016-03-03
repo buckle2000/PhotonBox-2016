@@ -15,10 +15,12 @@ public class RobotMap {
     public static final int shooterMotor = 4;
     public static final int armMotor = 5;
     public static final int shooterTriggerServo = 6;
+    public static final int armIntakeMotor = 8;
 
     // Sensors
     public static final int channelA = 0;
     public static final int channelB = 1;
+    public static final int shooterElevatorLimitSwitch = 2;
 
     // Cameras
     public static final String shooterCamera = "cam0";
