@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team6179.robot.commands.AimMode;
+import org.usfirst.frc.team6179.robot.commands.climber.ResetClimberLock;
+import org.usfirst.frc.team6179.robot.commands.climber.UnlockClimber;
 import org.usfirst.frc.team6179.robot.commands.drivetrain.DriveStraight;
 import org.usfirst.frc.team6179.robot.commands.drivetrain.PutGyroData;
 import org.usfirst.frc.team6179.robot.commands.shooter.CollectBoulder;
@@ -37,6 +39,8 @@ public class LogitechGamepad implements OI {
         SmartDashboard.putData("Display Shooter Camera Video with Crosshair", new SendVideoWithCrosshair(Robot.instance.shooterVision));
         SmartDashboard.putData("Put Gyro Data", new PutGyroData());
         SmartDashboard.putData("Drive Straight", new DriveStraight());
+        SmartDashboard.putData("Unlock Climber", new UnlockClimber());
+        SmartDashboard.putData("Reset Climber Lock", new ResetClimberLock());
         // display commands on dashboard for easy testing. //
 
     }
