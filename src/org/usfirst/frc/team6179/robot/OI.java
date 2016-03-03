@@ -27,6 +27,8 @@ public interface OI {
      */
     double getRightMovement();
 
+    double getClimberLockServoMovement();
+
     double getScaledCrosshairOffsetX();
 
     double getScaledCrosshairOffsetY();
