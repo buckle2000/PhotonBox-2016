@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6179.robot.commands.drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team6179.robot.Robot;
 
 /**
@@ -8,24 +9,27 @@ import org.usfirst.frc.team6179.robot.Robot;
  */
 public class DriveStraight extends Command {
 
-    private double speed = 0.5;
-    private double turningIncrement = 0.2;
+    private double speed;
+    private double turningIncrement;
 
     public DriveStraight() {
         requires(Robot.instance.driveTrain);
+        speed = SmartDashboard.getNumber("Speed");
+        turningIncrement = SmartDashboard.getNumber("Turning Increment");
     }
 
     @Override
     protected void initialize() {
         Robot.instance.driveTrain.arcadeDrive(speed, 0);
+        Robot.instance.driveTrain.angle = 0;
     }
 
     @Override
     protected void execute() {
         if(Robot.instance.driveTrain.angle > 0) {
-            Robot.instance.driveTrain.arcadeDrive(speed, -turningIncrement);
+            Robot.instance.driveTrain.arcadeDrive(speed, turningIncrement * Robot.instance.driveTrain.angle / 0.1);
         } else if(Robot.instance.driveTrain.angle < 0) {
-            Robot.instance.driveTrain.arcadeDrive(speed, turningIncrement);
+            Robot.instance.driveTrain.arcadeDrive(speed, turningIncrement * Robot.instance.driveTrain.angle / 0.1);
         }
     }
 
