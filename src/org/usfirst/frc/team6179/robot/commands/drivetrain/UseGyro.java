@@ -1,5 +1,6 @@
 package org.usfirst.frc.team6179.robot.commands.drivetrain;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team6179.robot.Robot;
@@ -10,19 +11,27 @@ import org.usfirst.frc.team6179.robot.configurations.DriveTrainConfig;
  * A command that constantly sends back gyro data.
  * Used for recording data.
  */
-public class PutGyroData extends Command {
-    public PutGyroData() {
+public class UseGyro extends Command {
 
+    private Timer timer;
+
+    public UseGyro() {
+        timer = new Timer();
     }
 
     @Override
     protected void initialize() {
+        timer.start();
 
     }
 
     @Override
     protected void execute() {
-        SmartDashboard.putNumber("Angular Velocity", Robot.instance.driveTrain.gy521.getGyroZ() / DriveTrainConfig.gyroSensitivity);
+        double angularVelocity = Robot.instance.driveTrain.getAngularVelocity();
+        Robot.instance.driveTrain.angle += timer.get() * angularVelocity;
+        timer.reset();
+
+        SmartDashboard.putNumber("Angular Velocity", angularVelocity);
         SmartDashboard.putNumber("Angle", Robot.instance.driveTrain.angle);
     }
 

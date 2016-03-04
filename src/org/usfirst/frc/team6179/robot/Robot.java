@@ -51,6 +51,9 @@ public class Robot extends IterativeRobot {
         climber = new Climber();
 
         oi = new LogitechGamepad();
+
+        SmartDashboard.putNumber("Speed", 0.8);
+        SmartDashboard.putNumber("Turning Increment", 0.5);
     }
 
     /**
