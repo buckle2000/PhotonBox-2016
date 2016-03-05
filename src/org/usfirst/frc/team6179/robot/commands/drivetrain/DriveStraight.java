@@ -18,6 +18,7 @@ public class DriveStraight extends Command {
 
     @Override
     protected void initialize() {
+        // todo: remove this. we no longer need to control these parameters.
         speed = SmartDashboard.getNumber("Speed");
         turningIncrement = SmartDashboard.getNumber("Turning Increment");
 
