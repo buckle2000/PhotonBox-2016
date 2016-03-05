@@ -27,6 +27,7 @@ public class Robot extends IterativeRobot {
     public OI oi;
 
     public DriveTrain driveTrain;
+    public DriveTrainGyro gyro;
     public Shooter shooter;
     public ShooterElevator elevator;
     public Vision shooterVision;
@@ -44,6 +45,7 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData("Auto mode", chooser);
 
         driveTrain = new DriveTrain();
+        gyro = new DriveTrainGyro();
         shooter = new Shooter();
         elevator = new ShooterElevator();
         shooterVision = new Vision(RobotMap.shooterCamera);
@@ -51,10 +53,7 @@ public class Robot extends IterativeRobot {
         climber = new Climber();
 
         oi = new LogitechGamepad();
-
-        SmartDashboard.putNumber("Speed", 0.8);
-        SmartDashboard.putNumber("Turning Increment", 0.5);
-    }
+   }
 
     /**
      * This function is called once each time the robot enters Disabled mode.
@@ -73,7 +72,7 @@ public class Robot extends IterativeRobot {
      * This autonomous (along with the chooser code above) shows how to select between different autonomous modes
      * using the dashboard. The sendable chooser code works with the Java SmartDashboard. If you prefer the LabVIEW
      * Dashboard, remove all of the chooser code and uncomment the getString code to get the auto name from the text box
-     * below the Gyro
+     * below the DriveTrainGyro
      * <p>
      * You can add additional auto modes by adding additional commands to the chooser code above (like the commented example)
      * or additional comparisons to the switch structure below with additional strings & commands.
@@ -105,6 +104,8 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+
+        gyro.updateDriveTrainData();
     }
 
     /**
