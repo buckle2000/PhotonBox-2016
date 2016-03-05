@@ -1,6 +1,5 @@
 package org.usfirst.frc.team6179.robot.subsystems;
 
-import com.sun.scenario.animation.shared.TimerReceiver;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
