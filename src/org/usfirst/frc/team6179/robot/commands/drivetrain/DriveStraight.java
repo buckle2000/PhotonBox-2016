@@ -14,12 +14,13 @@ public class DriveStraight extends Command {
 
     public DriveStraight() {
         requires(Robot.instance.driveTrain);
-        speed = SmartDashboard.getNumber("Speed");
-        turningIncrement = SmartDashboard.getNumber("Turning Increment");
     }
 
     @Override
     protected void initialize() {
+        speed = SmartDashboard.getNumber("Speed");
+        turningIncrement = SmartDashboard.getNumber("Turning Increment");
+
         Robot.instance.driveTrain.arcadeDrive(speed, 0);
         Robot.instance.gyro.angle = 0;
     }
