@@ -19,7 +19,6 @@ import org.usfirst.frc.team6179.robot.subsystems.*;
  */
 public class Robot extends IterativeRobot {
 
-    /** A globally stored reference to the robot instance, since there will only be one instance at any given time. */
     public static Robot instance;
 
     Command autonomousCommand;
@@ -28,7 +27,6 @@ public class Robot extends IterativeRobot {
     public OI oi;
 
     public DriveTrain driveTrain;
-    public DriveTrainGyro gyro;
     public Shooter shooter;
     public ShooterElevator elevator;
     public Vision shooterVision;
@@ -40,24 +38,19 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-        // sets the global reference
         Robot.instance = this;
 
-        // initialize subsystems
+        chooser = new SendableChooser();
+        SmartDashboard.putData("Auto mode", chooser);
+
         driveTrain = new DriveTrain();
-        gyro = new DriveTrainGyro();
         shooter = new Shooter();
         elevator = new ShooterElevator();
         shooterVision = new Vision(RobotMap.shooterCamera);
         arm = new Arm();
         climber = new Climber();
 
-        // initialize user interaction module
-        // any operation requesting user input should be put after this line
         oi = new LogitechGamepad();
-
-        chooser = new SendableChooser();
-        SmartDashboard.putData("Auto mode", chooser);
     }
 
     /**
@@ -77,7 +70,7 @@ public class Robot extends IterativeRobot {
      * This autonomous (along with the chooser code above) shows how to select between different autonomous modes
      * using the dashboard. The sendable chooser code works with the Java SmartDashboard. If you prefer the LabVIEW
      * Dashboard, remove all of the chooser code and uncomment the getString code to get the auto name from the text box
-     * below the DriveTrainGyro
+     * below the Gyro
      * <p>
      * You can add additional auto modes by adding additional commands to the chooser code above (like the commented example)
      * or additional comparisons to the switch structure below with additional strings & commands.
