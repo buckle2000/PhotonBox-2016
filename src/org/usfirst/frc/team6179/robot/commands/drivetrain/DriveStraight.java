@@ -26,11 +26,7 @@ public class DriveStraight extends Command {
 
     @Override
     protected void execute() {
-        if(Robot.instance.gyro.angle > 0) {
-            Robot.instance.driveTrain.arcadeDrive(speed, turningIncrement * Robot.instance.gyro.angle / 0.1);
-        } else if(Robot.instance.gyro.angle < 0) {
-            Robot.instance.driveTrain.arcadeDrive(speed, turningIncrement * Robot.instance.gyro.angle / 0.1);
-        }
+        Robot.instance.driveTrain.arcadeDrive(speed, Math.max(-0.8, Math.min(0.8, turningIncrement * Robot.instance.gyro.angle / 0.001)));
     }
 
     @Override
