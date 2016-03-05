@@ -24,12 +24,12 @@ public class AimMode extends Command {
 
     @Override
     protected void end() {
-
+        exitAimMode();
     }
 
     @Override
     protected void interrupted() {
-
+        exitAimMode();
     }
 
     private void exitAimMode() {
