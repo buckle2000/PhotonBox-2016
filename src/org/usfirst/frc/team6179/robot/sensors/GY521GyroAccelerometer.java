@@ -2,6 +2,7 @@ package org.usfirst.frc.team6179.robot.sensors;
 
 import edu.wpi.first.wpilibj.I2C;
 import org.usfirst.frc.team6179.robot.configurations.DriveTrainConfig;
+import org.usfirst.frc.team6179.robot.subsystems.DriveTrain;
 
 import java.nio.ByteBuffer;
 
@@ -30,11 +31,11 @@ public class GY521GyroAccelerometer {
     }
 
     public double getGyroX() {
-        return getRawData()[3];
+        return getRawData()[3] / DriveTrainConfig.gyroSensitivity;
     }
 
     public double getGyroY() {
-        return getRawData()[4];
+        return getRawData()[4] / DriveTrainConfig.gyroSensitivity;
     }
 
     public double getGyroZ() {
