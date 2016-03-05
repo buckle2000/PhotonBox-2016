@@ -46,7 +46,6 @@ public class Vision extends Subsystem {
 
     @Override
     protected void initDefaultCommand() {
-        setDefaultCommand(new SendVideoWithCrosshair(Robot.instance.shooterVision));
     }
 
     /**
