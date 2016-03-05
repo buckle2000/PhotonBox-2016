@@ -17,5 +17,6 @@ public class ShooterConfig {
     /** The output signal to send to the shooter motors to make the boulder go outward. */
     public static double outgoingOutput = -1;
     /** The output signal to send to the shooter motors to make the boulder go inward. */
+    public static double ingoingOutput = 0.5;
 
 }
