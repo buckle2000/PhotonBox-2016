@@ -5,6 +5,8 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team6179.robot.commands.drivetrain.ArcadeDriveWithJoystick;
+import org.usfirst.frc.team6179.robot.commands.drivetrain.UseGyro;
+import org.usfirst.frc.team6179.robot.configurations.DriveTrainConfig;
 import org.usfirst.frc.team6179.robot.mappings.RobotMap;
 import org.usfirst.frc.team6179.robot.sensors.GY521GyroAccelerometer;
 
@@ -29,17 +31,16 @@ public class DriveTrain extends Subsystem {
 
     private RobotDrive drive;
 
-    private Timer timer;
-
     public DriveTrain() {
         drive = new RobotDrive(RobotMap.leftMotor, RobotMap.rightMotor);
         gy521 = new GY521GyroAccelerometer();
-        timer.start();
+
+        (new UseGyro()).start();
 //        accelerometer = new BMA220Accelerometer();
     }
 
     public void arcadeDrive(double movement, double rotation) {
-        drive.arcadeDrive(movement * speedMultiplier, rotation * turnMultiplier, squaredInput);
+        drive.tankDrive(movement * speedMultiplier - rotation * turnMultiplier, rotation * turnMultiplier + rotation * turnMultiplier, squaredInput);
     }
 
     public void tankDrive(double leftMovement, double rightMovement) {
@@ -51,10 +52,7 @@ public class DriveTrain extends Subsystem {
     }
 
     public double getAngularVelocity() {
-        double angularVelocity = gy521.getGyroZ();
-        angle += timer.get() * angularVelocity;
-        timer.reset();
-        return gy521.getGyroZ();
+        return gy521.getGyroZ() / DriveTrainConfig.gyroSensitivity - DriveTrainConfig.gyroOffset;
     }
 
     public void initDefaultCommand() {
