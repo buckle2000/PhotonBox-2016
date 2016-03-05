@@ -1,6 +1,5 @@
 package org.usfirst.frc.team6179.robot.subsystems;
 
-import com.sun.scenario.animation.shared.TimerReceiver;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -14,14 +13,14 @@ import org.usfirst.frc.team6179.robot.sensors.GY521GyroAccelerometer;
  */
 public class DriveTrainGyro extends Subsystem {
 
-    public double angle;
+    public double heading;
 
     private GY521GyroAccelerometer gy521;
     private Timer timer;
 
     public DriveTrainGyro() {
         gy521 = new GY521GyroAccelerometer();
-        angle = 0;
+        heading = 0;
         timer = new Timer();
         timer.start();
     }
@@ -33,11 +32,11 @@ public class DriveTrainGyro extends Subsystem {
 
     public void updateDriveTrainData() {
         double angularVelocity = getAngularVelocity();
-        angle += timer.get() * angularVelocity;
+        heading += timer.get() * angularVelocity;
         timer.reset();
 
         SmartDashboard.putNumber("Angular Velocity", angularVelocity);
-        SmartDashboard.putNumber("Angle", Robot.instance.gyro.angle);
+        SmartDashboard.putNumber("Angle", Robot.instance.gyro.heading);
     }
 
     public double getAngularVelocity() {

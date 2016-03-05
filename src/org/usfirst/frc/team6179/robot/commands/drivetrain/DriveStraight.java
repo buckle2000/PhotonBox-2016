@@ -22,12 +22,12 @@ public class DriveStraight extends Command {
         turningIncrement = SmartDashboard.getNumber("Turning Increment");
 
         Robot.instance.driveTrain.arcadeDrive(speed, 0);
-        Robot.instance.gyro.angle = 0;
+        Robot.instance.gyro.heading = 0;
     }
 
     @Override
     protected void execute() {
-        Robot.instance.driveTrain.arcadeDrive(speed, Math.max(-0.8, Math.min(0.8, turningIncrement * Robot.instance.gyro.angle / 0.001)));
+        Robot.instance.driveTrain.arcadeDrive(speed, Math.max(-0.8, Math.min(0.8, turningIncrement * Robot.instance.gyro.heading / 0.001)));
     }
 
     @Override
