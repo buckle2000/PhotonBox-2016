@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team6179.robot.Robot;
+import org.usfirst.frc.team6179.robot.commands.drivetrain.UpdateDriveTrainGyroData;
 import org.usfirst.frc.team6179.robot.configurations.DriveTrainConfig;
 import org.usfirst.frc.team6179.robot.sensors.GY521GyroAccelerometer;
 
@@ -27,7 +28,7 @@ public class DriveTrainGyro extends Subsystem {
 
     @Override
     protected void initDefaultCommand() {
-
+        setDefaultCommand(new UpdateDriveTrainGyroData());
     }
 
     public void updateDriveTrainData() {
