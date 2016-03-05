@@ -5,10 +5,13 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team6179.robot.mappings.RobotMap;
 import org.usfirst.frc.team6179.robot.subsystems.*;
+
+import java.io.IOException;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -35,6 +38,8 @@ public class Robot extends IterativeRobot {
     public Arm arm;
     public Climber climber;
 
+    public final NetworkTable grip = NetworkTable.getTable("grip");
+
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -42,6 +47,11 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
         // sets the global reference
         Robot.instance = this;
+        try {
+            new ProcessBuilder("/home/lvuser/grip").inheritIO().start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         // initialize subsystems
         driveTrain = new DriveTrain();
@@ -116,5 +126,7 @@ public class Robot extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
+        SmartDashboard.putNumber("greyMin",grip.getNumber("greyMin", 0.0));
+        SmartDashboard.putNumber("greyMax",grip.getNumber("greyMax", 0.0));
     }
 }
